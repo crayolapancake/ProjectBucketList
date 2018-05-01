@@ -3,6 +3,8 @@ package com.example.user.bucketlist;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.widget.TextView;
 
 // PARENT
@@ -19,5 +21,12 @@ public class BucketListItemActivity extends AppCompatActivity {
 
         TextView bucketListTitleTextView = findViewById(R.id.bucketListTitleTextViewId);
         bucketListTitleTextView.setText(bucketListItem.getTaskTitle());
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.activity_main, menu);
+        return true;
     }
 }

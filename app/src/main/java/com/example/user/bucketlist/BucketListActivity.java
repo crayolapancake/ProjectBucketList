@@ -25,13 +25,13 @@ public class BucketListActivity extends AppCompatActivity {
             SharedPreferencesHelper.saveApplicationState(this, applicationState);
         }
 
-         BucketList bucketList = new BucketList();
+        BucketList bucketList = new BucketList();
         ArrayList<BucketListItem> bucketListCatalogue = bucketList.getBucketList();
 
         BucketListAdapter bucketListAdapter = new BucketListAdapter(this, bucketListCatalogue);
 
-        ListView moviesListView = findViewById(R.id.bucketListListViewId);
-        moviesListView.setAdapter(bucketListAdapter);
+        ListView  bucketListListView= findViewById(R.id.bucketListListViewId);
+        bucketListListView.setAdapter(bucketListAdapter);
     }
 
     public void onListItemClick(View listItem){

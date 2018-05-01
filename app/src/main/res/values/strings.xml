@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">BucketList</string>
     <string name="bucket_list_item_activity_title">BucketListItem</string>
+    <string name="add_item">Add</string>
 </resources>
