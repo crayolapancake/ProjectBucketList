@@ -5,10 +5,8 @@ import java.util.ArrayList;
 public class ApplicationState {
 
     private ArrayList<BucketListItem> favouriteBucketList;
-    private String userName;
 
-    public ApplicationState(String userName){
-        this.userName = userName;
+    public ApplicationState(){
         this.favouriteBucketList = new ArrayList<BucketListItem>();
     }
 

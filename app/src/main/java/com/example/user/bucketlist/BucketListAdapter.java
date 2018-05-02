@@ -16,6 +16,7 @@ public class BucketListAdapter extends ArrayAdapter<BucketListItem> {
         super(context, 0, bucketListItems);
     }
 
+        //creates the view for list
     @Override
     public View getView(int position, View listItemView, ViewGroup parent) {
         if (listItemView == null) {
@@ -23,9 +24,6 @@ public class BucketListAdapter extends ArrayAdapter<BucketListItem> {
         }
 
         BucketListItem currentBucketList = getItem(position);
-
-//        ImageView imageView = listItemView.findViewById(R.id.imageViewId);
-//        imageView.setImage(currentBucketList.getImage().toString());
 
         TextView titleTextView = listItemView.findViewById(R.id.taskTitleTextViewId);
         titleTextView.setText(currentBucketList.getTaskTitle());

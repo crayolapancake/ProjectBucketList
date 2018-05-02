@@ -17,7 +17,7 @@ public class FavouritesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_favourites);
 
         Intent intent = getIntent();
-        BucketListItem favouriteBucketListToAddToCollection = (BucketListItem) intent.getSerializableExtra("Bucketlist");
+        BucketListItem favouriteBucketListToAddToCollection = (BucketListItem) intent.getSerializableExtra("bucketListItem");
 
         ApplicationState applicationState = SharedPreferencesHelper.loadApplicationState(this);
 

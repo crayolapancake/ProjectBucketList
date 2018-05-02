@@ -5,6 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
@@ -21,7 +24,7 @@ public class BucketListActivity extends AppCompatActivity {
         ApplicationState applicationState = SharedPreferencesHelper.loadApplicationState(this);
 
         if (applicationState.getFavouriteBucketList() == null){
-            applicationState = new ApplicationState("NONAME");
+            applicationState = new ApplicationState();
             SharedPreferencesHelper.saveApplicationState(this, applicationState);
         }
 
@@ -30,8 +33,8 @@ public class BucketListActivity extends AppCompatActivity {
 
         BucketListAdapter bucketListAdapter = new BucketListAdapter(this, bucketListCatalogue);
 
-        ListView  bucketListListView= findViewById(R.id.bucketListListViewId);
-        bucketListListView.setAdapter(bucketListAdapter);
+        ListView  bucketListCatalogueView = findViewById(R.id.bucketListListViewId);
+        bucketListCatalogueView.setAdapter(bucketListAdapter);
     }
 
     public void onListItemClick(View listItem){
@@ -39,8 +42,24 @@ public class BucketListActivity extends AppCompatActivity {
         Log.d("Bucketlist Title", bucketListItem.getTaskTitle());
 
         Intent intent = new Intent (this, FavouritesActivity.class);
-        intent.putExtra("Bucketlist", bucketListItem);
+        intent.putExtra("bucketListItem", bucketListItem);
         startActivity(intent);
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.activity_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_add) {
+            // TODO: create a new task
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

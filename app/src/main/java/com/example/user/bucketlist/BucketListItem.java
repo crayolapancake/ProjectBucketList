@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class BucketListItem implements Serializable{
 
     private String taskTitle;
-    public String blurb;
+    private String blurb;
 
     public BucketListItem(String taskTitle, String blurb){
         this.taskTitle = taskTitle;
@@ -19,6 +19,8 @@ public class BucketListItem implements Serializable{
     public String getBlurb() {
         return this.blurb;
     }
+
+
 
 //    public void setTaskTitle(String taskTitle) {
 //        this.taskTitle = taskTitle;
