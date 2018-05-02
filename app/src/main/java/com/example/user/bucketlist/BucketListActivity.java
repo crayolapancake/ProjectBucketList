@@ -14,6 +14,8 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+
+// HOMESCREEN
 public class BucketListActivity extends AppCompatActivity {
 
     @Override
@@ -56,8 +58,10 @@ public class BucketListActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        //this will get called when the menu item gets clicked
         if (item.getItemId() == R.id.action_add) {
-            // TODO: create a new task
+            Intent addIntent = new Intent(this, AddActivity.class);
+            startActivity(addIntent);
             return true;
         }
         return super.onOptionsItemSelected(item);
