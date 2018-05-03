@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -16,25 +17,15 @@ public class DescriptionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_description);
 
         Intent intent = getIntent();
-        BucketListItem descriptionOfItem = (BucketListItem) intent.getSerializableExtra("description");
+        BucketListItem bucketListItem = (BucketListItem) intent.getSerializableExtra("bucketListItem");
 
-        BucketList loadedBucketList = SharedPreferencesHelper.loadApplicationState(this);
 
-        applicationState.getListDescription().add(descriptionOfItem);
-        SharedPreferencesHelper.saveApplicationState(this, applicationState);
 
-//        ArrayList<String> bucketListNames = new ArrayList<>();
-//
-//        for (BucketListItem bucketListItem : applicationState.getFavouriteBucketList()){
-//            String taskTitle = bucketListItem.getTaskTitle();
-//            bucketListNames.add(taskTitle);
-//        }
-//
-//        ArrayAdapter<String> bucketListNamesArrayAdapter = new ArrayAdapter<String>(this, R.layout.bucket_list_textview, bucketListNames);
-//
-//        ListView bucketListNamesListView = findViewById(R.id.bucketListItemizedViewId);
-//        bucketListNamesListView.setAdapter(bucketListNamesArrayAdapter);
-//
+        String titleToUse = bucketListItem.getTaskTitle();
+
+        TextView titleTextViewn = findViewById(R.id.descriptionTextView);
+
+        titleTextViewn.setText( titleToUse );
 
     }
 }

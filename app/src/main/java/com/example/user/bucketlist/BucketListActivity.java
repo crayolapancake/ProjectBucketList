@@ -56,7 +56,7 @@ public class BucketListActivity extends AppCompatActivity {
         BucketListItem bucketListItem = (BucketListItem) listItem.getTag();
         Log.d("Bucketlist Title", bucketListItem.getTaskTitle());
 
-        Intent intent = new Intent(this, FavouritesActivity.class);
+        Intent intent = new Intent(this, DescriptionActivity.class);
         intent.putExtra("bucketListItem", bucketListItem);
         startActivity(intent);
 
