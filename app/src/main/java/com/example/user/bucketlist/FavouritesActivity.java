@@ -35,7 +35,7 @@ public class FavouritesActivity extends AppCompatActivity {
 //
 //        ListView bucketListNamesListView = findViewById(R.id.bucketListItemizedViewId);
 //        bucketListNamesListView.setAdapter(bucketListNamesArrayAdapter);
-
+//
 
 
     }

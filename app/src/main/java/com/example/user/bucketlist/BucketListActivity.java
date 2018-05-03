@@ -10,7 +10,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ListView;
+import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import java.util.ArrayList;
 
@@ -25,7 +29,7 @@ public class BucketListActivity extends AppCompatActivity {
 
         BucketList loadedBucketList = SharedPreferencesHelper.loadApplicationState(this);
 
-        if (loadedBucketList.getBucketList() == null){
+        if (loadedBucketList.getBucketList() == null) {
             loadedBucketList = new BucketList();
             SharedPreferencesHelper.saveApplicationState(this, loadedBucketList);
         }
@@ -34,22 +38,25 @@ public class BucketListActivity extends AppCompatActivity {
 
         BucketListAdapter bucketListAdapter = new BucketListAdapter(this, bucketListCatalogue);
 
-        ListView  bucketListCatalogueView = findViewById(R.id.bucketListListViewId);
+        ListView bucketListCatalogueView = findViewById(R.id.bucketListListViewId);
         bucketListCatalogueView.setAdapter(bucketListAdapter);
+
+
+
     }
 
     @Override
-    protected void onResume(){
+    protected void onResume() {
         super.onResume();
-        ListView  bucketListCatalogueView = findViewById(R.id.bucketListListViewId);
+        ListView bucketListCatalogueView = findViewById(R.id.bucketListListViewId);
         bucketListCatalogueView.invalidateViews();
     }
 
-    public void onListItemClick(View listItem){
+    public void onListItemClick(View listItem) {
         BucketListItem bucketListItem = (BucketListItem) listItem.getTag();
         Log.d("Bucketlist Title", bucketListItem.getTaskTitle());
 
-        Intent intent = new Intent (this, FavouritesActivity.class);
+        Intent intent = new Intent(this, FavouritesActivity.class);
         intent.putExtra("bucketListItem", bucketListItem);
         startActivity(intent);
 
@@ -72,4 +79,12 @@ public class BucketListActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+
+
+
+
 }
+
+
+

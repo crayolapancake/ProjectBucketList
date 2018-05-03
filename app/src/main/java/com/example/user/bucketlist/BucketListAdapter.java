@@ -5,8 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import java.util.ArrayList;
 
@@ -32,6 +35,15 @@ public class BucketListAdapter extends ArrayAdapter<BucketListItem> {
         yearTextView.setText(currentBucketList.getBlurb().toString());
 
         listItemView.setTag(currentBucketList);
+
+        ToggleButton toggle = (ToggleButton) listItemView.findViewById(R.id.completedToggleButton);
+        toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    Toast.makeText(getContext(), R.string.completed_button_toast, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
         return listItemView;
 
