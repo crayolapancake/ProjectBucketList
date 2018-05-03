@@ -19,22 +19,22 @@ public class FavouritesActivity extends AppCompatActivity {
         Intent intent = getIntent();
         BucketListItem favouriteBucketListToAddToCollection = (BucketListItem) intent.getSerializableExtra("bucketListItem");
 
-        ApplicationState applicationState = SharedPreferencesHelper.loadApplicationState(this);
+        BucketList loadedBucketList = SharedPreferencesHelper.loadApplicationState(this);
 
-        applicationState.getFavouriteBucketList().add(favouriteBucketListToAddToCollection);
-        SharedPreferencesHelper.saveApplicationState(this, applicationState);
-
-        ArrayList<String> bucketListNames = new ArrayList<>();
-
-        for (BucketListItem bucketListItem : applicationState.getFavouriteBucketList()){
-            String taskTitle = bucketListItem.getTaskTitle();
-            bucketListNames.add(taskTitle);
-        }
-
-        ArrayAdapter<String> bucketListNamesArrayAdapter = new ArrayAdapter<String>(this, R.layout.bucket_list_textview, bucketListNames);
-
-        ListView bucketListNamesListView = findViewById(R.id.bucketListItemizedViewId);
-        bucketListNamesListView.setAdapter(bucketListNamesArrayAdapter);
+//        applicationState.getFavouriteBucketList().add(favouriteBucketListToAddToCollection);
+//        SharedPreferencesHelper.saveApplicationState(this, applicationState);
+//
+//        ArrayList<String> bucketListNames = new ArrayList<>();
+//
+//        for (BucketListItem bucketListItem : applicationState.getFavouriteBucketList()){
+//            String taskTitle = bucketListItem.getTaskTitle();
+//            bucketListNames.add(taskTitle);
+//        }
+//
+//        ArrayAdapter<String> bucketListNamesArrayAdapter = new ArrayAdapter<String>(this, R.layout.bucket_list_textview, bucketListNames);
+//
+//        ListView bucketListNamesListView = findViewById(R.id.bucketListItemizedViewId);
+//        bucketListNamesListView.setAdapter(bucketListNamesArrayAdapter);
 
 
 

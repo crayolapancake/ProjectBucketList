@@ -21,7 +21,10 @@
             android:label="@string/bucket_list_item_activity_title"
             android:parentActivityName=".BucketListActivity" />
         <activity android:name=".FavouritesActivity" />
-        <activity android:name=".AddActivity"></activity>
+        <activity
+            android:name=".AddActivity"
+            android:parentActivityName=".BucketListActivity" />
+        <activity android:name=".DescriptionActivity"></activity>
     </application>
 
 </manifest>

@@ -23,20 +23,26 @@ public class BucketListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bucket_list);
 
-        ApplicationState applicationState = SharedPreferencesHelper.loadApplicationState(this);
+        BucketList loadedBucketList = SharedPreferencesHelper.loadApplicationState(this);
 
-        if (applicationState.getFavouriteBucketList() == null){
-            applicationState = new ApplicationState();
-            SharedPreferencesHelper.saveApplicationState(this, applicationState);
+        if (loadedBucketList.getBucketList() == null){
+            loadedBucketList = new BucketList();
+            SharedPreferencesHelper.saveApplicationState(this, loadedBucketList);
         }
 
-        BucketList bucketList = new BucketList();
-        ArrayList<BucketListItem> bucketListCatalogue = bucketList.getBucketList();
+        ArrayList<BucketListItem> bucketListCatalogue = loadedBucketList.getBucketList();
 
         BucketListAdapter bucketListAdapter = new BucketListAdapter(this, bucketListCatalogue);
 
         ListView  bucketListCatalogueView = findViewById(R.id.bucketListListViewId);
         bucketListCatalogueView.setAdapter(bucketListAdapter);
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        ListView  bucketListCatalogueView = findViewById(R.id.bucketListListViewId);
+        bucketListCatalogueView.invalidateViews();
     }
 
     public void onListItemClick(View listItem){
