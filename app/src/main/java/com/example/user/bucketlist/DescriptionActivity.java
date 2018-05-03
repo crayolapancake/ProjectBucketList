@@ -20,12 +20,14 @@ public class DescriptionActivity extends AppCompatActivity {
         BucketListItem bucketListItem = (BucketListItem) intent.getSerializableExtra("bucketListItem");
 
 
-
         String titleToUse = bucketListItem.getTaskTitle();
-
         TextView titleTextViewn = findViewById(R.id.descriptionTextView);
-
         titleTextViewn.setText( titleToUse );
 
+        String blurbToUse = bucketListItem.getBlurb();
+        TextView blurbTextView = findViewById(R.id.descriptionBlurbView);
+        blurbTextView.setText( blurbToUse );
+
     }
+
 }
